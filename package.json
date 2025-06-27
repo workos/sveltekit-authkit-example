@@ -28,5 +28,12 @@
 		"onlyBuiltDependencies": [
 			"esbuild"
 		]
+	},
+	"dependencies": {
+		"@workos-inc/authkit-ssr": "0.0.1-alpha.0",
+		"@workos-inc/node": "^7.56.0",
+		"cookie": "^1.0.2",
+		"iron-webcrypto": "^1.2.1",
+		"jose": "^6.0.11"
 	}
 }
