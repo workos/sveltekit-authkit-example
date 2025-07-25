@@ -30,7 +30,7 @@
 		]
 	},
 	"dependencies": {
-		"@workos-inc/authkit-ssr": "0.0.1-alpha.0",
+		"@workos/authkit-session": "0.0.1-alpha.1",
 		"@workos-inc/node": "^7.56.0",
 		"cookie": "^1.0.2",
 		"iron-webcrypto": "^1.2.1",

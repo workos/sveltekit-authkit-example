@@ -1,4 +1,4 @@
-import type { SessionEncryption } from '@workos-inc/authkit-ssr';
+import type { SessionEncryption } from '@workos/authkit-session';
 import { seal as sealData, unseal as unsealData } from 'iron-webcrypto';
 
 /**

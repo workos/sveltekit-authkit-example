@@ -1,5 +1,5 @@
 import { parse, serialize } from 'cookie';
-import type { SessionStorage, AuthKitConfig } from '@workos-inc/authkit-ssr';
+import type { SessionStorage, AuthKitConfig } from '@workos/authkit-session';
 
 /**
  * SvelteKit-specific session storage adapter for AuthKit SSR

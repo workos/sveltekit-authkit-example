@@ -1,4 +1,4 @@
-import { configure, createAuthKitFactory } from '@workos-inc/authkit-ssr';
+import { configure, createAuthKitFactory } from '@workos/authkit-session';
 import { SvelteKitStorage } from './storage.js';
 import { SvelteKitSessionEncryption } from './encryption.js';
 import { env } from '$env/dynamic/private';

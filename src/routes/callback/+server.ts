@@ -1,6 +1,6 @@
 import { error, redirect } from '@sveltejs/kit';
 import { authKit } from '$lib/authkit/index.js';
-import { getWorkOS, getConfig } from '@workos-inc/authkit-ssr';
+import { getWorkOS, getConfig } from '@workos/authkit-session';
 import type { RequestHandler } from './$types.js';
 
 export const GET: RequestHandler = async ({ url }) => {
