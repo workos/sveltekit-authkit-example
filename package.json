@@ -27,13 +27,13 @@
 	"pnpm": {
 		"onlyBuiltDependencies": [
 			"esbuild"
-		]
+		],
+		"overrides": {
+			"@workos/authkit-session": "file:../authkit-session"
+		}
 	},
 	"dependencies": {
-		"@workos/authkit-session": "0.0.1-alpha.1",
-		"@workos-inc/node": "^7.56.0",
-		"cookie": "^1.0.2",
-		"iron-webcrypto": "^1.2.1",
-		"jose": "^6.0.11"
+		"@workos/authkit-sveltekit": "file:../authkit-sveltekit",
+		"@workos-inc/node": "^7.62.1"
 	}
 }
