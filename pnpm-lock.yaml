@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@workos/authkit-session': file:../authkit-session
+
 importers:
 
   .:
@@ -13,17 +16,17 @@ importers:
         version: 7.62.1
       '@workos/authkit-sveltekit':
         specifier: file:../authkit-sveltekit
-        version: file:../authkit-sveltekit(@sveltejs/kit@2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@6.3.5))(svelte@5.36.17)(vite@6.3.5))
+        version: file:../authkit-sveltekit(@sveltejs/kit@2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6))(svelte@5.36.17)(vite@7.0.6))
     devDependencies:
       '@sveltejs/adapter-auto':
         specifier: ^6.0.0
-        version: 6.0.1(@sveltejs/kit@2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@6.3.5))(svelte@5.36.17)(vite@6.3.5))
+        version: 6.0.1(@sveltejs/kit@2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6))(svelte@5.36.17)(vite@7.0.6))
       '@sveltejs/kit':
         specifier: ^2.16.0
-        version: 2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@6.3.5))(svelte@5.36.17)(vite@6.3.5)
+        version: 2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6))(svelte@5.36.17)(vite@7.0.6)
       '@sveltejs/vite-plugin-svelte':
         specifier: ^6.1.0
-        version: 6.1.0(svelte@5.36.17)(vite@6.3.5)
+        version: 6.1.0(svelte@5.36.17)(vite@7.0.6)
       prettier:
         specifier: ^3.4.2
         version: 3.6.2
@@ -40,8 +43,8 @@ importers:
         specifier: ^5.0.0
         version: 5.8.3
       vite:
-        specifier: ^6.2.6
-        version: 6.3.5
+        specifier: ^7.0.6
+        version: 7.0.6
 
 packages:
 
@@ -433,8 +436,8 @@ packages:
     resolution: {integrity: sha512-MSeEpWLLVsk7HVKdnwaWj0S03bUquLwNCXah/fBun5nZIZhQLDZtK3s1nAexhU+UEUclB4T+xYeaegYK6sshoQ==}
     engines: {node: '>=16'}
 
-  '@workos/authkit-session@0.0.1-alpha.1':
-    resolution: {integrity: sha512-jsgNcd07izbX6X7MdeSk/Zu9aoDfLMHN96IF8eYOWKr7+CjesToVLpe//hJ7uz5YR9jUQ/Bi5LhrJ5vSbVOQvQ==}
+  '@workos/authkit-session@file:../authkit-session':
+    resolution: {directory: ../authkit-session, type: directory}
     engines: {node: '>=22.0.0'}
 
   '@workos/authkit-sveltekit@file:../authkit-sveltekit':
@@ -758,19 +761,19 @@ packages:
   uncrypto@0.1.3:
     resolution: {integrity: sha512-Ql87qFHB3s/De2ClA9e0gsnS6zXG27SkTiSJwjCc9MebbfapQfuPzumMIUMi38ezPZVNFcHI9sUIepeQfw8J8Q==}
 
-  vite@6.3.5:
-    resolution: {integrity: sha512-cZn6NDFE7wdTpINgs++ZJ4N49W2vRp8LCKrn3Ob1kYNtOo21vfDoaV5GzBfLU4MovSAB8uNRm4jgzVQZ+mBzPQ==}
-    engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
+  vite@7.0.6:
+    resolution: {integrity: sha512-MHFiOENNBd+Bd9uvc8GEsIzdkn1JxMmEeYX35tI3fv0sJBUTfW5tQsoaOwuY4KhBI09A3dUJ/DXf2yxPVPUceg==}
+    engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
-      '@types/node': ^18.0.0 || ^20.0.0 || >=22.0.0
+      '@types/node': ^20.19.0 || >=22.12.0
       jiti: '>=1.21.0'
-      less: '*'
+      less: ^4.0.0
       lightningcss: ^1.21.0
-      sass: '*'
-      sass-embedded: '*'
-      stylus: '*'
-      sugarss: '*'
+      sass: ^1.70.0
+      sass-embedded: ^1.70.0
+      stylus: '>=0.54.8'
+      sugarss: ^5.0.0
       terser: ^5.16.0
       tsx: ^4.8.1
       yaml: ^2.4.2
@@ -995,14 +998,14 @@ snapshots:
     dependencies:
       acorn: 8.15.0
 
-  '@sveltejs/adapter-auto@6.0.1(@sveltejs/kit@2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@6.3.5))(svelte@5.36.17)(vite@6.3.5))':
+  '@sveltejs/adapter-auto@6.0.1(@sveltejs/kit@2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6))(svelte@5.36.17)(vite@7.0.6))':
     dependencies:
-      '@sveltejs/kit': 2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@6.3.5))(svelte@5.36.17)(vite@6.3.5)
+      '@sveltejs/kit': 2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6))(svelte@5.36.17)(vite@7.0.6)
 
-  '@sveltejs/kit@2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@6.3.5))(svelte@5.36.17)(vite@6.3.5)':
+  '@sveltejs/kit@2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6))(svelte@5.36.17)(vite@7.0.6)':
     dependencies:
       '@sveltejs/acorn-typescript': 1.0.5(acorn@8.15.0)
-      '@sveltejs/vite-plugin-svelte': 6.1.0(svelte@5.36.17)(vite@6.3.5)
+      '@sveltejs/vite-plugin-svelte': 6.1.0(svelte@5.36.17)(vite@7.0.6)
       '@types/cookie': 0.6.0
       acorn: 8.15.0
       cookie: 0.6.0
@@ -1015,27 +1018,27 @@ snapshots:
       set-cookie-parser: 2.7.1
       sirv: 3.0.1
       svelte: 5.36.17
-      vite: 6.3.5
+      vite: 7.0.6
 
-  '@sveltejs/vite-plugin-svelte-inspector@5.0.0(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@6.3.5))(svelte@5.36.17)(vite@6.3.5)':
+  '@sveltejs/vite-plugin-svelte-inspector@5.0.0(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6))(svelte@5.36.17)(vite@7.0.6)':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 6.1.0(svelte@5.36.17)(vite@6.3.5)
+      '@sveltejs/vite-plugin-svelte': 6.1.0(svelte@5.36.17)(vite@7.0.6)
       debug: 4.4.1
       svelte: 5.36.17
-      vite: 6.3.5
+      vite: 7.0.6
     transitivePeerDependencies:
       - supports-color
 
-  '@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@6.3.5)':
+  '@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6)':
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 5.0.0(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@6.3.5))(svelte@5.36.17)(vite@6.3.5)
+      '@sveltejs/vite-plugin-svelte-inspector': 5.0.0(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6))(svelte@5.36.17)(vite@7.0.6)
       debug: 4.4.1
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.17
       svelte: 5.36.17
-      vite: 6.3.5
-      vitefu: 1.1.1(vite@6.3.5)
+      vite: 7.0.6
+      vitefu: 1.1.1(vite@7.0.6)
     transitivePeerDependencies:
       - supports-color
 
@@ -1133,7 +1136,7 @@ snapshots:
       - koa
       - next
 
-  '@workos/authkit-session@0.0.1-alpha.1':
+  '@workos/authkit-session@file:../authkit-session':
     dependencies:
       '@workos-inc/node': 7.62.1
       iron-session: 8.0.4
@@ -1144,10 +1147,10 @@ snapshots:
       - koa
       - next
 
-  '@workos/authkit-sveltekit@file:../authkit-sveltekit(@sveltejs/kit@2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@6.3.5))(svelte@5.36.17)(vite@6.3.5))':
+  '@workos/authkit-sveltekit@file:../authkit-sveltekit(@sveltejs/kit@2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6))(svelte@5.36.17)(vite@7.0.6))':
     dependencies:
-      '@sveltejs/kit': 2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@6.3.5))(svelte@5.36.17)(vite@6.3.5)
-      '@workos/authkit-session': 0.0.1-alpha.1
+      '@sveltejs/kit': 2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6))(svelte@5.36.17)(vite@7.0.6)
+      '@workos/authkit-session': file:../authkit-session
       cookie: 1.0.2
       iron-webcrypto: 1.2.1
     transitivePeerDependencies:
@@ -1485,7 +1488,7 @@ snapshots:
 
   uncrypto@0.1.3: {}
 
-  vite@6.3.5:
+  vite@7.0.6:
     dependencies:
       esbuild: 0.25.8
       fdir: 6.4.6(picomatch@4.0.3)
@@ -1496,9 +1499,9 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  vitefu@1.1.1(vite@6.3.5):
+  vitefu@1.1.1(vite@7.0.6):
     optionalDependencies:
-      vite: 6.3.5
+      vite: 7.0.6
 
   webcrypto-core@1.8.1:
     dependencies:

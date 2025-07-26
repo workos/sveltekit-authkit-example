@@ -22,12 +22,15 @@
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
 		"typescript": "^5.0.0",
-		"vite": "^6.2.6"
+		"vite": "^7.0.6"
 	},
 	"pnpm": {
 		"onlyBuiltDependencies": [
 			"esbuild"
-		]
+		],
+		"overrides": {
+			"@workos/authkit-session": "file:../authkit-session"
+		}
 	},
 	"dependencies": {
 		"@workos/authkit-sveltekit": "file:../authkit-sveltekit",
