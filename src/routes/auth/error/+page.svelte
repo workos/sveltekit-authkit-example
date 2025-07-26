@@ -1,11 +1,22 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	
+	// Map error codes to user-friendly messages
+	const errorMessages: Record<string, string> = {
+		'ACCESS_DENIED': 'Access was denied. Please try again or contact support.',
+		'AUTH_ERROR': 'An authentication error occurred. Please try again.',
+		'AUTH_FAILED': 'Authentication failed. Please try again.',
+		'DEFAULT': 'An error occurred during authentication.'
+	};
+	
+	$: errorCode = $page.url.searchParams.get('code') || 'DEFAULT';
+	$: errorMessage = errorMessages[errorCode] || errorMessages['DEFAULT'];
 </script>
 
 <div class="error-page">
 	<h1>Authentication Error</h1>
 	<p>
-		{$page.url.searchParams.get('message') || 'An error occurred during authentication.'}
+		{errorMessage}
 	</p>
 	<a href="/login" class="btn">Try Again</a>
 </div>

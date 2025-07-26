@@ -11,9 +11,9 @@ configureAuthKit({
 	cookiePassword: env.WORKOS_COOKIE_PASSWORD
 });
 
-// Create the auth handle with debug enabled
+// Create the auth handle with debug based on environment
 const authHandle = authKitHandle({
-	debug: true
+	debug: process.env.NODE_ENV === 'development'
 });
 
 // Create a custom handle for protected routes
