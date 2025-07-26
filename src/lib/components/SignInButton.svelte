@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { User } from '@workos-inc/node';
+	import type { User } from '@workos/authkit-sveltekit';
 
 	interface Props {
 		user: User | null;
