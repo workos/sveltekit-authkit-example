@@ -23,18 +23,18 @@
 	}
 
 	.footer-card {
-		background: white;
-		padding: 2rem;
-		border-radius: 12px;
+		background: var(--color-white);
+		padding: var(--spacing-xl);
+		border-radius: var(--radius-md);
 		text-decoration: none;
 		color: inherit;
-		transition: all 0.2s;
-		border: 1px solid #e5e7eb;
+		transition: all var(--transition-fast);
+		border: 1px solid var(--color-border);
 	}
 
 	.footer-card:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+		box-shadow: var(--shadow-md);
 	}
 
 	h4 {
@@ -45,7 +45,7 @@
 
 	p {
 		font-size: 0.875rem;
-		color: #6b7280;
+		color: var(--color-text-muted);
 		margin: 0;
 		line-height: 1.5;
 	}

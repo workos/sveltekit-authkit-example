@@ -3,15 +3,7 @@
 	import { page } from '$app/stores';
 	import SignInButton from '$lib/components/SignInButton.svelte';
 	import Footer from '$lib/components/Footer.svelte';
-
-	interface Props {
-		data: {
-			user: any;
-		};
-		children: import('svelte').Snippet;
-	}
-
-	let { data, children }: Props = $props();
+	let { data, children } = $props<{ data: import('./$types').LayoutData; children: import('svelte').Snippet }>();
 </script>
 
 <div class="app-container">
@@ -20,10 +12,8 @@
 			<div class="card">
 				<header>
 					<nav>
-						<a href="/" class="nav-button" class:active={$page.url.pathname === '/'}> Home </a>
-						<a href="/account" class="nav-button" class:active={$page.url.pathname === '/account'}>
-							Account
-						</a>
+						<a href="/" class="button secondary" class:active={$page.url.pathname === '/'}>Home</a>
+						<a href="/account" class="button secondary" class:active={$page.url.pathname === '/account'}>Account</a>
 					</nav>
 
 					<SignInButton user={data.user} />
@@ -60,13 +50,9 @@
 	}
 
 	.card {
-		background: white;
-		border-radius: 12px;
-		padding: 2rem;
 		height: 100%;
 		display: flex;
 		flex-direction: column;
-		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 	}
 
 	header {
@@ -81,24 +67,9 @@
 		gap: 1rem;
 	}
 
-	.nav-button {
-		padding: 0.5rem 1rem;
-		background: rgba(99, 102, 241, 0.1);
-		color: #6366f1;
-		border: none;
-		border-radius: 6px;
-		text-decoration: none;
-		font-size: 0.875rem;
-		transition: all 0.2s;
-	}
-
-	.nav-button:hover {
-		background: rgba(99, 102, 241, 0.2);
-	}
-
-	.nav-button.active {
-		background: #6366f1;
-		color: white;
+	nav .button.active {
+		background: var(--color-primary);
+		color: var(--color-white);
 	}
 
 	main {

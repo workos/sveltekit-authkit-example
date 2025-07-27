@@ -1,13 +1,5 @@
 <script lang="ts">
-	interface Props {
-		data: {
-			user: any;
-			role?: string;
-			permissions?: string[];
-		};
-	}
-
-	let { data }: Props = $props();
+	let { data } = $props<{ data: import('./$types').PageData }>();
 
 	let userFields = $derived(
 		data.user
@@ -18,15 +10,15 @@
 					...(data.role ? [['Role', data.role]] : []),
 					...(data.permissions?.length ? [['Permissions', data.permissions.join(', ')]] : []),
 					['Id', data.user.id]
-				].filter(([_, value]) => value)
+				].filter((field) => Boolean(field[1]))
 			: []
 	);
 </script>
 
 <div class="account-container">
-	<div class="account-header">
-		<h1>Account details</h1>
-		<p>Below are your account details</p>
+	<div class="text-center">
+		<h1 class="title">Account details</h1>
+		<p class="subtitle">Below are your account details</p>
 	</div>
 
 	{#if userFields.length > 0}
@@ -34,9 +26,7 @@
 			{#each userFields as [label, value]}
 				<label class="field">
 					<span class="label">{label}</span>
-					<div class="input-wrapper">
-						<input type="text" value={String(value)} readonly />
-					</div>
+					<input type="text" value={String(value)} readonly />
 				</label>
 			{/each}
 		</div>
@@ -47,38 +37,23 @@
 	.account-container {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: var(--spacing-sm);
 		max-width: 400px;
 		width: 100%;
-	}
-
-	.account-header {
-		text-align: center;
-		margin-bottom: 1.5rem;
-	}
-
-	.account-header h1 {
-		font-size: 2rem;
-		font-weight: 800;
-		margin: 0 0 0.5rem 0;
-	}
-
-	.account-header p {
-		font-size: 1.25rem;
-		color: #6b7280;
-		margin: 0;
+		margin: 0 auto;
 	}
 
 	.fields {
 		display: flex;
 		flex-direction: column;
 		gap: 0.75rem;
+		margin-top: var(--spacing-xl);
 	}
 
 	.field {
 		display: flex;
 		align-items: center;
-		gap: 1.5rem;
+		gap: var(--spacing-lg);
 	}
 
 	.label {
@@ -88,22 +63,7 @@
 		text-align: right;
 	}
 
-	.input-wrapper {
+	.field input {
 		flex: 1;
-	}
-
-	input {
-		width: 100%;
-		padding: 0.5rem;
-		border: 1px solid #e5e7eb;
-		border-radius: 6px;
-		font-size: 0.875rem;
-		background: #f9fafb;
-		cursor: default;
-	}
-
-	input:focus {
-		outline: 2px solid #6366f1;
-		outline-offset: -1px;
 	}
 </style>

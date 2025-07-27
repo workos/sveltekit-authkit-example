@@ -1,10 +1,11 @@
-import { json, error } from '@sveltejs/kit';
+import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types.js';
 
 export const GET: RequestHandler = async ({ locals }) => {
-	if (!locals.auth?.user) {
-		throw error(401, 'User not authenticated');
-	}
-
-	return json({ name: locals.auth.user.firstName || 'Unknown' });
+	const user = locals.auth.user!;
+	return json({ 
+		name: user.firstName || 'Unknown',
+		email: user.email,
+		id: user.id
+	});
 };
