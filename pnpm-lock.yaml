@@ -40,7 +40,7 @@ importers:
         specifier: ^4.0.0
         version: 4.3.0(picomatch@4.0.3)(svelte@5.36.17)(typescript@5.8.3)
       typescript:
-        specifier: ^5.8.0
+        specifier: ^5.0.0
         version: 5.8.3
       vite:
         specifier: ^7.0.6
@@ -444,7 +444,7 @@ packages:
     resolution: {directory: ../authkit-sveltekit, type: directory}
     engines: {node: '>=18.0.0'}
     peerDependencies:
-      '@sveltejs/kit': ^2.0.0
+      '@sveltejs/kit': '>=2.0.0'
 
   acorn@8.15.0:
     resolution: {integrity: sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==}
