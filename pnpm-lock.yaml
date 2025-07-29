@@ -4,9 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  '@workos/authkit-session': file:../authkit-session
-
 importers:
 
   .:
@@ -21,8 +18,8 @@ importers:
         specifier: ^7.62.1
         version: 7.62.1
       '@workos/authkit-sveltekit':
-        specifier: file:../authkit-sveltekit
-        version: file:../authkit-sveltekit(@sveltejs/kit@2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6))(svelte@5.36.17)(vite@7.0.6))
+        specifier: 0.0.1-alpha.1
+        version: 0.0.1-alpha.1(@sveltejs/kit@2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6))(svelte@5.36.17)(vite@7.0.6))
       svelte:
         specifier: ^5.0.0
         version: 5.36.17
@@ -436,13 +433,13 @@ packages:
     resolution: {integrity: sha512-MSeEpWLLVsk7HVKdnwaWj0S03bUquLwNCXah/fBun5nZIZhQLDZtK3s1nAexhU+UEUclB4T+xYeaegYK6sshoQ==}
     engines: {node: '>=16'}
 
-  '@workos/authkit-session@file:../authkit-session':
-    resolution: {directory: ../authkit-session, type: directory}
-    engines: {node: '>=22.0.0'}
+  '@workos/authkit-session@0.0.1-alpha.3':
+    resolution: {integrity: sha512-bLlZfvR/cg0afW4OT3yMWC/5F3GP4x3td+4+KlBLN2DIOPCt8ORJKwfZ9om4twvreeQVW0KVsPnX+qyWWwafqQ==}
+    engines: {node: '>=20.0.0'}
 
-  '@workos/authkit-sveltekit@file:../authkit-sveltekit':
-    resolution: {directory: ../authkit-sveltekit, type: directory}
-    engines: {node: '>=18.0.0'}
+  '@workos/authkit-sveltekit@0.0.1-alpha.1':
+    resolution: {integrity: sha512-FB60pT8R7URbGl5Ruw1AuMWxd7RxtwMmuWI1SWl/JOYvmzurgFidFdndh8ClyKyrJnvgTQuxHHJ4zDuNP3wVwg==}
+    engines: {node: '>=20.0.0'}
     peerDependencies:
       '@sveltejs/kit': '>=2.0.0'
 
@@ -1136,7 +1133,7 @@ snapshots:
       - koa
       - next
 
-  '@workos/authkit-session@file:../authkit-session':
+  '@workos/authkit-session@0.0.1-alpha.3':
     dependencies:
       '@workos-inc/node': 7.62.1
       iron-session: 8.0.4
@@ -1147,10 +1144,10 @@ snapshots:
       - koa
       - next
 
-  '@workos/authkit-sveltekit@file:../authkit-sveltekit(@sveltejs/kit@2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6))(svelte@5.36.17)(vite@7.0.6))':
+  '@workos/authkit-sveltekit@0.0.1-alpha.1(@sveltejs/kit@2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6))(svelte@5.36.17)(vite@7.0.6))':
     dependencies:
       '@sveltejs/kit': 2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6))(svelte@5.36.17)(vite@7.0.6)
-      '@workos/authkit-session': file:../authkit-session
+      '@workos/authkit-session': 0.0.1-alpha.3
       cookie: 1.0.2
     transitivePeerDependencies:
       - express

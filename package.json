@@ -24,16 +24,13 @@
 	"pnpm": {
 		"onlyBuiltDependencies": [
 			"esbuild"
-		],
-		"overrides": {
-			"@workos/authkit-session": "file:../authkit-session"
-		}
+		]
 	},
 	"dependencies": {
 		"@sveltejs/adapter-auto": "^6.0.0",
 		"@sveltejs/kit": "^2.16.0",
-		"svelte": "^5.0.0",
-		"@workos/authkit-sveltekit": "file:../authkit-sveltekit",
-		"@workos-inc/node": "^7.62.1"
+		"@workos-inc/node": "^7.62.1",
+		"@workos/authkit-sveltekit": "0.0.1-alpha.1",
+		"svelte": "^5.0.0"
 	}
 }
