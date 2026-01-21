@@ -464,8 +464,8 @@ const sessionManager = createSvelteKitAuthKit({
 ### Types
 
 ```typescript
-// Re-exported from @workos/node
-export type { User, Impersonator } from '@workos/node';
+// Re-exported from @workos-inc/node
+export type { User, Impersonator } from '@workos-inc/node';
 
 // Re-exported from @workos/authkit-ssr
 export type { AuthResult, Session } from '@workos/authkit-ssr';
