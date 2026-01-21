@@ -2,7 +2,7 @@
 
 The AuthKit library for SvelteKit provides convenient helpers for authentication and session management using WorkOS & AuthKit with SvelteKit.
 
-[![npm version](https://badge.fury.io/js/@workos-inc%2Fauthkit-sveltekit.svg)](https://www.npmjs.com/package/@workos-inc/authkit-sveltekit)
+[![npm version](https://badge.fury.io/js/@workos%2Fauthkit-sveltekit.svg)](https://www.npmjs.com/package/@workos/authkit-sveltekit)
 [![TypeScript](https://img.shields.io/badge/TypeScript-ready-blue.svg)](https://www.typescriptlang.org/)
 
 ## ✨ Features
@@ -19,13 +19,13 @@ The AuthKit library for SvelteKit provides convenient helpers for authentication
 Install the package with:
 
 ```bash
-npm install @workos-inc/authkit-sveltekit
+npm install @workos/authkit-sveltekit
 ```
 
 or
 
 ```bash
-yarn add @workos-inc/authkit-sveltekit
+yarn add @workos/authkit-sveltekit
 ```
 
 ## Pre-flight
@@ -77,7 +77,7 @@ WORKOS_COOKIE_NAME='my-auth-cookie'
 Create or update your `src/hooks.server.ts` file:
 
 ```typescript
-import { createAuthKitHandle } from '@workos-inc/authkit-sveltekit';
+import { createAuthKitHandle } from '@workos/authkit-sveltekit';
 
 export const handle = createAuthKitHandle();
 ```
@@ -85,7 +85,7 @@ export const handle = createAuthKitHandle();
 For advanced configuration:
 
 ```typescript
-import { createAuthKitHandle } from '@workos-inc/authkit-sveltekit';
+import { createAuthKitHandle } from '@workos/authkit-sveltekit';
 
 export const handle = createAuthKitHandle({
   protectedPaths: ['/dashboard', '/admin'],
@@ -99,7 +99,7 @@ export const handle = createAuthKitHandle({
 Add the following to your `src/app.d.ts` file:
 
 ```typescript
-import type { AuthLocals } from '@workos-inc/authkit-sveltekit';
+import type { AuthLocals } from '@workos/authkit-sveltekit';
 
 declare global {
   namespace App {
@@ -118,13 +118,13 @@ export {};
 Create `src/routes/login/+server.ts`:
 
 ```typescript
-export { GET } from '@workos-inc/authkit-sveltekit/login';
+export { GET } from '@workos/authkit-sveltekit/login';
 ```
 
 For custom configuration:
 
 ```typescript
-import { loginHandler } from '@workos-inc/authkit-sveltekit';
+import { loginHandler } from '@workos/authkit-sveltekit';
 
 export const GET = loginHandler({
   screenHint: 'sign-in' // or 'sign-up'
@@ -136,7 +136,7 @@ export const GET = loginHandler({
 Create `src/routes/logout/+server.ts`:
 
 ```typescript
-export { POST } from '@workos-inc/authkit-sveltekit/logout';
+export { POST } from '@workos/authkit-sveltekit/logout';
 ```
 
 #### Callback route
@@ -144,13 +144,13 @@ export { POST } from '@workos-inc/authkit-sveltekit/logout';
 Create `src/routes/callback/+server.ts`:
 
 ```typescript
-export { GET } from '@workos-inc/authkit-sveltekit/callback';
+export { GET } from '@workos/authkit-sveltekit/callback';
 ```
 
 For custom success handling:
 
 ```typescript
-import { callbackHandler } from '@workos-inc/authkit-sveltekit';
+import { callbackHandler } from '@workos/authkit-sveltekit';
 
 export const GET = callbackHandler({
   onSuccess: async (user, session) => {
@@ -202,7 +202,7 @@ AuthKit SvelteKit provides ready-to-use Svelte components:
 
 ```svelte
 <script>
-  import { SignInButton, SignOutButton, UserProfile } from '@workos-inc/authkit-sveltekit/components';
+  import { SignInButton, SignOutButton, UserProfile } from '@workos/authkit-sveltekit/components';
   import { page } from '$app/stores';
   
   $: user = $page.data.user;
@@ -240,7 +240,7 @@ Use reactive stores for client-side authentication state:
 
 ```svelte
 <script>
-  import { authUser, isAuthenticated } from '@workos-inc/authkit-sveltekit/stores';
+  import { authUser, isAuthenticated } from '@workos/authkit-sveltekit/stores';
 </script>
 
 {#if $isAuthenticated}
@@ -258,7 +258,7 @@ Use `requireAuth` to protect page load functions:
 
 ```typescript
 // src/routes/dashboard/+page.server.ts
-import { requireAuth } from '@workos-inc/authkit-sveltekit';
+import { requireAuth } from '@workos/authkit-sveltekit';
 
 export const load = requireAuth(async ({ locals }) => {
   // locals.user is guaranteed to exist and fully typed
@@ -276,7 +276,7 @@ Protect API endpoints with `withAuth`:
 ```typescript
 // src/routes/api/user/+server.ts
 import { json } from '@sveltejs/kit';
-import { withAuth } from '@workos-inc/authkit-sveltekit';
+import { withAuth } from '@workos/authkit-sveltekit';
 
 export const GET = withAuth(async ({ locals }) => {
   return json({
@@ -292,7 +292,7 @@ export const GET = withAuth(async ({ locals }) => {
 
 ```typescript
 // src/hooks.server.ts
-import { createAuthKitHandle } from '@workos-inc/authkit-sveltekit';
+import { createAuthKitHandle } from '@workos/authkit-sveltekit';
 
 export const handle = createAuthKitHandle({
   protectedPaths: ['/dashboard', '/admin'],
@@ -306,7 +306,7 @@ export const handle = createAuthKitHandle({
 
 ```typescript
 // src/hooks.server.ts
-import { createAuthKitHandle, loadAuthKitEnv } from '@workos-inc/authkit-sveltekit';
+import { createAuthKitHandle, loadAuthKitEnv } from '@workos/authkit-sveltekit';
 
 const config = loadAuthKitEnv(); // Loads from WORKOS_* environment variables
 
@@ -358,7 +358,7 @@ Handle authentication errors gracefully:
 ```typescript
 // src/routes/api/protected/+server.ts
 import { json, error } from '@sveltejs/kit';
-import { withAuth } from '@workos-inc/authkit-sveltekit';
+import { withAuth } from '@workos/authkit-sveltekit';
 
 export const GET = withAuth(async ({ locals }) => {
   try {
@@ -423,7 +423,7 @@ ENV WORKOS_REDIRECT_URI=https://your-app.com/callback
 For advanced use cases, you can access the underlying session manager:
 
 ```typescript
-import { getSessionManager } from '@workos-inc/authkit-sveltekit';
+import { getSessionManager } from '@workos/authkit-sveltekit';
 
 // In a server-side context
 const sessionManager = getSessionManager();
@@ -435,7 +435,7 @@ const authResult = await sessionManager.withAuth(request);
 Access the WorkOS client directly for advanced operations:
 
 ```typescript
-import { getWorkOS } from '@workos-inc/authkit-ssr';
+import { getWorkOS } from '@workos/authkit-ssr';
 
 const workos = getWorkOS();
 const organizations = await workos.organizations.listOrganizations({
@@ -448,7 +448,7 @@ const organizations = await workos.organizations.listOrganizations({
 Implement custom session storage for special deployment needs:
 
 ```typescript
-import { createSvelteKitAuthKit, SvelteKitStorage } from '@workos-inc/authkit-sveltekit';
+import { createSvelteKitAuthKit, SvelteKitStorage } from '@workos/authkit-sveltekit';
 
 class CustomStorage extends SvelteKitStorage {
   // Override storage methods for custom behavior
@@ -464,11 +464,11 @@ const sessionManager = createSvelteKitAuthKit({
 ### Types
 
 ```typescript
-// Re-exported from @workos-inc/node
-export type { User, Impersonator } from '@workos-inc/node';
+// Re-exported from @workos/node
+export type { User, Impersonator } from '@workos/node';
 
-// Re-exported from @workos-inc/authkit-ssr
-export type { AuthResult, Session } from '@workos-inc/authkit-ssr';
+// Re-exported from @workos/authkit-ssr
+export type { AuthResult, Session } from '@workos/authkit-ssr';
 
 // SvelteKit-specific types
 export interface AuthLocals {
@@ -533,7 +533,7 @@ If you're migrating from a manual WorkOS implementation:
 | Old Pattern | New Pattern |
 |-------------|-------------|
 | Custom session management | `createAuthKitHandle()` |
-| Manual login routes | `export { GET } from '@workos-inc/authkit-sveltekit/login'` |
+| Manual login routes | `export { GET } from '@workos/authkit-sveltekit/login'` |
 | Custom auth checks | `requireAuth()`, `withAuth()` |
 | Manual user state | `$page.data.user`, stores |
 
@@ -571,7 +571,7 @@ Enable debug logging to troubleshoot issues:
 
 ```typescript
 // src/hooks.server.ts
-import { createAuthKitHandle } from '@workos-inc/authkit-sveltekit';
+import { createAuthKitHandle } from '@workos/authkit-sveltekit';
 
 export const handle = createAuthKitHandle({
   debug: true // Enable debug logs
