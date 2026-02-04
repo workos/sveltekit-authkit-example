@@ -1,4 +1,7 @@
-# AuthKit SvelteKit
+# Sveltekit AuthKit Example
+
+>[!WARNING]
+>This example has been moved into the [authkit-sveltekit](https://github.com/workos/authkit-sveltekit) project and this repo has been archived.
 
 The AuthKit library for SvelteKit provides convenient helpers for authentication and session management using WorkOS & AuthKit with SvelteKit.
 
